@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+	<title>angular todolist</title>
+</head>
+<body ng-controller="myList">
+  <form ng-submit = 'add()'>
+    <label>请在下面填入todo事项！</label>
+  	<input type="text" ng-model='txt'>
+  </form>
+  <div>共有待办事项{{list.length}}项</div>
+  <ol>
+    <!--track by $index 避免重复输入时报错-->
+  	<li ng-repeat='l in list track by $index'>{{l}}<a href="#" ng-click='deleteLi($index)'>X</a></li>
+  </ol>
+  <script src="lib/angular.js"></script>
+  <script src="js/test-angular.js"></script>
+</body>
+</html>
