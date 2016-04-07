@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>avalon todolist</title>
+</head>
+<body ms-controller="myList">
+  <form ms-on-submit = 'add'>
+    <label>请在下面填入todo事项！</label>
+    <!--ms-duplex相当于angular中的ng-model-->
+  	<input type="text" ms-duplex='txt'>
+  </form>
+  <div>共有待办事项{{list.length}}项</div>
+  <div>{{txt}}</div>
+  <ol>
+    <!--ms-repeat后面直接写要遍历的数组，el代表每个具体数据，$remove移除当前由ms-repeat生成的条-->
+  	<li ms-repeat='list'>{{el}}<a href="#" ms-click='$remove'>X</a></li>
+  </ol>
+  <script src="lib/avalon.js"></script>
+  <script src="js/test-avalon.js"></script>
+</body>
+</html>
